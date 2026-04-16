@@ -6,8 +6,8 @@ import MaterialIcon from '../components/MaterialIcon'
 
 import quadradoImg from '../assets/quadradas-e1701207905622.jpg'
 import amendoadoImg from '../assets/amendoado.jpg'
-import bailarinaImg from '../assets/bailarina.jpg'
-import stilettoImg from '../assets/stiletto.jpg'
+import bailarinaImg from '../assets/Bailarina.jpg'
+import stilettoImg from '../assets/Stiletto.jpg'
 import ovalImg from '../assets/oval.jpg'
 
 const formats = [
