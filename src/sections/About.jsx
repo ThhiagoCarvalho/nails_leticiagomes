@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import LazyImage from '../components/LazyImage'
 
 const stats = [
-  { value: '5+', label: 'Anos de Exp.' },
-  { value: '2k+', label: 'Atendimentos' },
+  { value: '2+', label: 'Anos de Exp.' },
+  { value: '200+', label: 'Atendimentos' },
 ]
 
 const About = memo(function About() {
