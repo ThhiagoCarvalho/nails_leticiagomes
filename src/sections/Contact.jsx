@@ -2,7 +2,6 @@ import { memo } from 'react'
 import { motion } from 'framer-motion'
 import MaterialIcon from '../components/MaterialIcon'
 import Button from '../components/Button'
-import LazyImage from '../components/LazyImage'
 
 const contactInfo = [
   {
@@ -109,26 +108,16 @@ const Contact = memo(function Contact() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="w-full h-full relative">
-            <LazyImage
-              src="/google_maps_location.png"
-              alt="Localização Letícia Gomes Atelier"
-              className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/5 transition-colors">
-              <motion.a
-                href="https://maps.google.com/?q=Avenida+Ant%C3%B4nio+Joaquim+Alvarenga+Filho+140+S%C3%A3o+Jos%C3%A9+dos+Campos"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white px-8 py-4 rounded-full flex items-center gap-3 shadow-2xl hover:bg-primary hover:text-white transition-all duration-300 transform"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <MaterialIcon name="pin_drop" className="animate-bounce" />
-                <span className="font-bold text-sm tracking-wide">Abrir no Google Maps</span>
-              </motion.a>
-            </div>
-          </div>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.114651468933!2d-45.89166650000001!3d-23.2752834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdb56ed0f5a1d3%3A0xc8ac0568c32687a3!2sAv.%20Ant%C3%B4nio%20Joaquim%20Alvarenga%20Filho%2C%20140%20-%20Conj.%20Res.%20Dom%20Pedro%20I%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20-%20SP%2C%2012232-570!5e0!3m2!1spt-BR!2sbr!4v1776368413000!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen="" 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Mapa Letícia Gomes Atelier"
+          ></iframe>
         </motion.div>
       </div>
     </section>
