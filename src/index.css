@@ -2,109 +2,216 @@
 
 /* ===== Custom Theme (TailwindCSS v4) ===== */
 @theme {
-  /* Colors - Material Design 3 palette */
-  --color-on-surface: #1a1c1c;
-  --color-secondary: #675d4d;
+  /* Colors - Refined Premium Palette */
+  --color-on-surface: #1a1a1a;
+  --color-secondary: #6b6057;
   --color-on-tertiary: #ffffff;
   --color-secondary-fixed-dim: #d3c4b1;
   --color-on-error-container: #93000a;
   --color-error-container: #ffdad6;
   --color-on-tertiary-container: #3f3a33;
-  --color-surface-bright: #f9f9f8;
-  --color-surface-tint: #775a19;
+  --color-surface-bright: #faf9f7;
+  --color-surface-tint: #7a5c1e;
   --color-error: #ba1a1a;
-  --color-secondary-fixed: #efe0cc;
-  --color-inverse-on-surface: #f1f1f0;
+  --color-secondary-fixed: #ede0cc;
+  --color-inverse-on-surface: #f3f1ef;
   --color-on-secondary-container: #6e6353;
-  --color-outline-variant: #d1c5b4;
-  --color-primary: #775a19;
-  --color-surface-variant: #e2e2e2;
+  --color-outline-variant: #d6cab9;
+  --color-primary: #7a5c1e;
+  --color-surface-variant: #e8e1d8;
   --color-on-secondary-fixed: #221a0e;
   --color-on-primary-fixed: #261900;
   --color-on-secondary: #ffffff;
   --color-on-tertiary-fixed-variant: #4b463f;
-  --color-surface-container: #eeeeed;
-  --color-surface-container-high: #e8e8e7;
-  --color-primary-container: #c5a059;
-  --color-secondary-container: #efe0cc;
+  --color-surface-container: #f0ece6;
+  --color-surface-container-high: #eae5de;
+  --color-primary-container: #c8a462;
+  --color-secondary-container: #ede0cc;
   --color-tertiary: #635e56;
-  --color-outline: #7f7667;
+  --color-outline: #8a7b6a;
   --color-on-tertiary-fixed: #1f1b15;
-  --color-surface-container-highest: #e2e2e2;
-  --color-inverse-primary: #e9c176;
-  --color-surface-dim: #dadad9;
+  --color-surface-container-highest: #e4ddd4;
+  --color-inverse-primary: #eac47a;
+  --color-surface-dim: #ddd8d0;
   --color-on-secondary-fixed-variant: #4f4537;
-  --color-tertiary-fixed: #eae1d7;
+  --color-tertiary-fixed: #ede5db;
   --color-on-primary-fixed-variant: #5d4201;
-  --color-surface: #f9f9f8;
-  --color-surface-container-low: #f4f4f3;
-  --color-primary-fixed: #ffdea5;
-  --color-primary-fixed-dim: #e9c176;
-  --color-on-primary-container: #4e3700;
-  --color-on-surface-variant: #4e4639;
-  --color-tertiary-container: #aba49b;
-  --color-on-background: #1a1c1c;
-  --color-inverse-surface: #2f3130;
+  --color-surface: #faf9f7;
+  --color-surface-container-low: #f5f1eb;
+  --color-primary-fixed: #fde3ad;
+  --color-primary-fixed-dim: #eac47a;
+  --color-on-primary-container: #4a3400;
+  --color-on-surface-variant: #524a3d;
+  --color-tertiary-container: #aea79e;
+  --color-on-background: #1a1a1a;
+  --color-inverse-surface: #2e2d2b;
   --color-surface-container-lowest: #ffffff;
-  --color-background: #f9f9f8;
-  --color-tertiary-fixed-dim: #cdc5bc;
+  --color-background: #faf9f7;
+  --color-tertiary-fixed-dim: #cfc7be;
   --color-on-primary: #ffffff;
   --color-on-error: #ffffff;
 
-  /* Font Families */
-  --font-headline: "Noto Serif", serif;
-  --font-body: "Manrope", sans-serif;
-  --font-label: "Manrope", sans-serif;
+  /* Font Families — Premium Pairing */
+  --font-headline: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Inter", "Helvetica Neue", sans-serif;
+  --font-label: "Inter", "Helvetica Neue", sans-serif;
   --font-script: "Dancing Script", cursive;
 }
 
 /* ===== Base Styles ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: max(884px, 100dvh);
   background-color: var(--color-background);
   color: var(--color-on-surface);
   font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: color-mix(in srgb, var(--color-primary-container) 30%, transparent);
+  background-color: color-mix(in srgb, var(--color-primary-container) 40%, transparent);
+  color: var(--color-on-primary-container);
 }
 
 /* ===== Material Symbols ===== */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
 }
 
-/* ===== Custom Utilities ===== */
+/* ===== Marble Background ===== */
 .marble-bg {
   background-image: 
-    linear-gradient(rgba(249, 249, 248, 0.92), rgba(249, 249, 248, 0.92)),
+    linear-gradient(rgba(250, 249, 247, 0.90), rgba(250, 249, 247, 0.90)),
     url(https://lh3.googleusercontent.com/aida-public/AB6AXuDoJOOXu2NoVqbBl2FiossOPBgq9TQ-qutM5MxDeZY0mOXoXsuvmrIFG410dsl1gjOjAX6tzXj0Bs-F1FYVLDUQW4X-ucQv0KRUPfZiecUIepPR_oGE5pZRojae-C1A--WH2PXU1JWRmZeZ8gMRQ6-tEwuFZloUMMfuJIXOPep2-klwvxnUO4GZoV7aGSpWFI5lMQCoPprzRfLu6-Wz326ECAew_X6-GiWAfAnB3F7RJNJTPnNXyh12VmN6IFp71hK3fGBEJB7g5zo);
   background-size: cover;
   background-attachment: fixed;
 }
 
+/* ===== Gold Gradient ===== */
 .gold-gradient {
-  background: linear-gradient(135deg, #775a19 0%, #c5a059 100%);
+  background: linear-gradient(135deg, #7a5c1e 0%, #c8a462 50%, #dbb97a 100%);
 }
 
+/* ===== Text Gold Gradient ===== */
+.text-gold {
+  background: linear-gradient(135deg, #7a5c1e 0%, #c8a462 60%, #e0c77d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Ambient Shadow — refined ===== */
 .ambient-shadow {
-  box-shadow: 0 15px 35px -5px rgba(119, 90, 25, 0.08), 0 5px 15px -5px rgba(119, 90, 25, 0.04);
+  box-shadow: 
+    0 4px 6px -1px rgba(122, 92, 30, 0.06),
+    0 12px 28px -4px rgba(122, 92, 30, 0.10),
+    0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
+.ambient-shadow-lg {
+  box-shadow: 
+    0 8px 12px -2px rgba(122, 92, 30, 0.08),
+    0 20px 48px -8px rgba(122, 92, 30, 0.16),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Glass Effect ===== */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+/* ===== Card Premium Hover ===== */
+.card-premium {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.35s ease;
+}
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 8px 16px -2px rgba(122, 92, 30, 0.10),
+    0 24px 56px -8px rgba(122, 92, 30, 0.18),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Hover Lift — for buttons ===== */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== Section Ornament Line ===== */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+.ornament-line::before,
+.ornament-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  max-width: 48px;
+  background: linear-gradient(to right, transparent, var(--color-primary-container));
+}
+.ornament-line::after {
+  background: linear-gradient(to left, transparent, var(--color-primary-container));
+}
+
+/* ===== Gold Divider ===== */
+.gold-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+  border-radius: 999px;
+}
+
+/* ===== Mood Board Item ===== */
 .mood-board-item {
   position: relative;
   overflow: hidden;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   aspect-ratio: 1 / 1;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.5s ease;
 }
+
+/* ===== Nav Link Hover Underline ===== */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== Scrollbar (Carousel) ===== */
+.scrollbar-hidden::-webkit-scrollbar { display: none; }
+.scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }

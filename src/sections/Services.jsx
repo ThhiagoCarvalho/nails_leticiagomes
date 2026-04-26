@@ -63,34 +63,56 @@ const servicesData = [
 ]
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } }
 }
 
 const ServiceCard = ({ item }) => (
-  <motion.div 
-    className="group bg-surface-container-lowest rounded-2xl overflow-hidden ambient-shadow flex flex-col md:flex-row h-full transition-all duration-300 hover:shadow-lg"
+  <motion.div
+    className="group bg-white rounded-2xl overflow-hidden card-premium flex flex-col md:flex-row h-full border border-surface-variant/20"
     variants={fadeUp}
   >
-    <div className="w-full md:w-2/5 aspect-square md:aspect-auto overflow-hidden">
-      <LazyImage 
-        src={item.img} 
-        alt={item.name} 
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+    {/* Image */}
+    <div className="w-full md:w-2/5 aspect-square md:aspect-auto overflow-hidden relative">
+      <LazyImage
+        src={item.img}
+        alt={item.name}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
       />
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 pointer-events-none" />
     </div>
-    <div className="w-full md:w-3/5 p-6 md:p-8 flex flex-col justify-center">
-      <h4 className="text-2xl font-headline text-primary mb-3">{item.name}</h4>
-      <p className="text-secondary mb-6 leading-relaxed flex-grow">{item.desc}</p>
-      
-      <div className="flex flex-wrap gap-4 mt-auto">
+
+    {/* Content */}
+    <div className="w-full md:w-3/5 p-7 md:p-9 flex flex-col justify-between">
+      <div>
+        <div className="flex items-center gap-3 mb-3">
+          <span className="w-5 h-px bg-primary/40" />
+          <h4 className="text-2xl md:text-3xl font-headline font-medium text-primary leading-tight">
+            {item.name}
+          </h4>
+        </div>
+        <p className="text-secondary/80 leading-relaxed font-light text-sm mb-6">
+          {item.desc}
+        </p>
+      </div>
+
+      {/* Prices */}
+      <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-surface-variant/30">
         {item.prices.map((price, idx) => (
-          <div 
-            key={idx} 
-            className={`flex flex-col px-4 py-2 rounded-xl ${price.type === 'Aplicação' || price.type === 'Serviço' ? 'bg-primary-container text-on-primary-container' : 'bg-surface-variant text-on-surface-variant'}`}
+          <div
+            key={idx}
+            className={`flex flex-col px-5 py-3 rounded-xl ${
+              price.type === 'Aplicação' || price.type === 'Serviço'
+                ? 'bg-primary-container/40 text-on-primary-container'
+                : 'bg-surface-container text-on-surface-variant'
+            }`}
           >
-            <span className="text-xs uppercase tracking-wider font-label mb-1 opacity-80">{price.type}</span>
-            <span className="text-xl font-bold font-headline">{price.value}</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] font-label mb-1 opacity-70 font-semibold">
+              {price.type}
+            </span>
+            <span className="text-2xl font-headline font-semibold text-primary leading-none">
+              {price.value}
+            </span>
           </div>
         ))}
       </div>
@@ -100,59 +122,99 @@ const ServiceCard = ({ item }) => (
 
 const Services = memo(function Services() {
   return (
-    <section id="servicos" className="py-24 px-6 relative bg-background overflow-hidden">
+    <section id="servicos" className="py-28 px-6 md:px-8 relative bg-surface-container-low overflow-hidden">
+
+      {/* Decorative background blob */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-container/8 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none" />
+
       <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div 
+
+        {/* Header */}
+        <motion.div
           className="text-center mb-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={fadeUp}
         >
-          <h2 className="text-4xl md:text-5xl font-headline text-primary mb-4">Serviços Especializados</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto font-light">
+          <div className="flex items-center gap-3 mb-5 justify-center">
+            <span className="w-8 h-px bg-primary-container/80" />
+            <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-label font-semibold">
+              Especialidades
+            </span>
+            <span className="w-8 h-px bg-primary-container/80" />
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-headline font-light text-primary mb-4 leading-tight">
+            Serviços Especializados
+          </h2>
+          <div className="flex justify-center mb-5">
+            <div className="gold-divider" />
+          </div>
+          <p className="text-lg text-secondary/80 max-w-2xl mx-auto font-light leading-relaxed">
             Procedimentos realizados com produtos de alta qualidade para garantir unhas impecáveis e saudáveis.
           </p>
         </motion.div>
 
         {servicesData.map((category, idx) => (
           <div key={idx} className="mb-20 last:mb-0">
-            <motion.div 
-              className="mb-8 pl-4 border-l-4 border-primary"
+
+            {/* Category label */}
+            <motion.div
+              className="mb-8 flex items-center gap-5"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.55 }}
             >
-              <h3 className="text-3xl font-headline text-on-surface">{category.category}</h3>
-              <p className="text-secondary mt-2">{category.description}</p>
+              <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent" />
+              <div>
+                <h3 className="text-2xl md:text-3xl font-headline font-medium text-on-surface">
+                  {category.category}
+                </h3>
+                <p className="text-secondary/70 mt-1 text-sm font-light">{category.description}</p>
+              </div>
+              <div className="h-px w-8 bg-primary/20" />
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {category.items.map(item => (
                 <ServiceCard key={item.id} item={item} />
               ))}
             </div>
           </div>
         ))}
-        
+
         {/* CTA Banner */}
-        <motion.div 
-          className="mt-24 p-12 bg-primary-container rounded-3xl text-center ambient-shadow relative overflow-hidden"
+        <motion.div
+          className="mt-24 p-12 md:p-16 rounded-3xl text-center relative overflow-hidden border border-primary/10"
+          style={{
+            background: 'linear-gradient(135deg, #f5ede0 0%, #ede0cc 50%, #e8d5b0 100%)'
+          }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeUp}
         >
           {/* Decorative glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] aspect-square bg-white/20 blur-3xl pointer-events-none rounded-full" />
-          
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] aspect-square bg-white/30 blur-3xl pointer-events-none rounded-full" />
+          <div className="absolute top-0 right-0 w-48 h-48 bg-primary/8 blur-[80px] rounded-full pointer-events-none" />
+
           <div className="relative z-10">
-            <h3 className="text-3xl md:text-5xl font-headline text-on-primary-container mb-4">Pronta para transformar suas unhas?</h3>
-            <p className="text-on-primary-container/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-label font-semibold mb-4">
+              Pronta para transformar?
+            </p>
+            <h3 className="text-3xl md:text-5xl font-headline font-light text-primary mb-3 leading-tight">
+              Suas unhas merecem
+              <br />
+              <span className="italic">o melhor cuidado</span>
+            </h3>
+            <div className="flex justify-center mb-6">
+              <div className="gold-divider" />
+            </div>
+            <p className="text-secondary/80 text-base md:text-lg mb-10 max-w-xl mx-auto font-light leading-relaxed">
               Agende seu horário e garanta um momento de cuidado, beleza e relaxamento que você merece.
             </p>
-            <Button href="#contato" icon="calendar_today" className="shadow-lg">
+            <Button href="#contato" icon="calendar_today" variant="primary">
               Agendar agora
             </Button>
           </div>

@@ -25,51 +25,71 @@ const testimonials = [
 ]
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 32 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.15, ease: 'easeOut' },
+    transition: { duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] },
   }),
 }
 
 const Feedback = memo(function Feedback() {
   return (
-    <section className="py-24 px-6 bg-surface-container-low overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeader 
-          label="Depoimentos" 
-          title="O que nossas clientes dizem" 
+    <section className="py-28 px-6 md:px-8 bg-background overflow-hidden relative">
+      {/* Decorative blobs */}
+      <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-primary-container/10 blur-[100px] rounded-full -ml-32 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <SectionHeader
+          label="Depoimentos"
+          title="O que nossas clientes dizem"
           align="center"
           showLine={true}
         />
 
-        <div className="grid md:grid-cols-3 gap-6 mt-16">
+        <div className="grid md:grid-cols-3 gap-6 mt-4">
           {testimonials.map((item, index) => (
             <motion.div
               key={item.id}
-              className="bg-white p-8 rounded-2xl ambient-shadow border border-surface-variant/30 relative"
+              className="bg-white rounded-2xl overflow-hidden card-premium border border-surface-variant/20 flex flex-col"
               custom={index}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-50px' }}
               variants={cardVariants}
             >
-              <div className="text-primary-container mb-4 flex">
-                {[...Array(item.rating)].map((_, i) => (
-                  <MaterialIcon key={i} name="star" filled className="text-lg" />
-                ))}
-              </div>
-              <p className="text-secondary italic leading-relaxed mb-6">
-                "{item.text}"
-              </p>
-              <div className="flex items-center gap-4 border-t border-surface-variant/40 pt-4">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold font-headline">
-                  {item.name.charAt(0)}
+              {/* Top accent bar */}
+              <div className="h-1 gold-gradient" />
+
+              <div className="p-8 flex flex-col flex-1">
+                {/* Decorative quote mark */}
+                <div className="text-primary-container/60 font-headline text-7xl leading-none mb-2 select-none" aria-hidden>
+                  "
                 </div>
-                <div>
-                  <p className="font-bold text-sm text-on-surface">{item.name}</p>
-                  <p className="text-xs text-on-surface-variant">Cliente Verificada</p>
+
+                {/* Stars */}
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <MaterialIcon key={i} name="star" filled className="text-[16px] text-primary-container" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-secondary/80 leading-relaxed mb-8 font-light text-sm flex-1 italic">
+                  {item.text}
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4 border-t border-surface-variant/30 pt-5 mt-auto">
+                  <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center text-white font-headline font-semibold text-lg shadow-sm">
+                    {item.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm text-on-surface font-label">{item.name}</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 font-label">
+                      Cliente Verificada
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
