@@ -19,9 +19,9 @@ const Footer = memo(function Footer() {
           {/* Contact Info */}
           <div className="flex flex-col items-center md:items-start space-y-4 text-secondary/80 text-sm">
             <h6 className="text-primary font-bold uppercase tracking-widest text-xs mb-2">Contato</h6>
-            <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="https://wa.me/5512988812961" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
               <MaterialIcon name="chat" className="text-lg" />
-              (12) 99999-9999
+              (12) 98881-2961
             </a>
             <a href="mailto:contato@leticiagomes.com.br" className="flex items-center gap-2 hover:text-primary transition-colors">
               <MaterialIcon name="mail" className="text-lg" />
@@ -39,7 +39,7 @@ const Footer = memo(function Footer() {
           <div className="flex flex-col items-center md:items-start space-y-4 text-secondary/80 text-sm">
             <h6 className="text-primary font-bold uppercase tracking-widest text-xs mb-2">Redes Sociais</h6>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-colors">
+              <a href="https://www.instagram.com/leticiagomes.unhas/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-colors">
                 <MaterialIcon name="photo_camera" />
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/10 transition-colors">

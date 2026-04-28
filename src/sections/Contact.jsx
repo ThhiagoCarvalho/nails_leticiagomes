@@ -20,10 +20,10 @@ const contactInfo = [
 ]
 
 const Contact = memo(function Contact() {
-  const whatsappNumber = '5512999999999' // Placeholder, user should update this
+  const whatsappNumber = '5512988812961'
   const whatsappMessage = encodeURIComponent('Olá Letícia, gostaria de agendar um horário para fazer minhas unhas!')
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
-  const instagramUrl = 'https://www.instagram.com/leticiagomes.atelier/' // Template instagram
+  const instagramUrl = 'https://www.instagram.com/leticiagomes.unhas/'
 
   return (
     <section id="contato" className="py-24 px-6 max-w-7xl mx-auto">
