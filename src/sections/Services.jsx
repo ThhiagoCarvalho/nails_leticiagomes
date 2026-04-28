@@ -7,56 +7,114 @@ import fibraImg from '../assets/service_fibra_1776303133581.png'
 import moldeImg from '../assets/service_molde_f1_1776303201152.png'
 import banhoGelImg from '../assets/service_banho_gel_1776303183274.png'
 import manicureImg from '../assets/service_manicure_1776303215098.png'
+import quadradoImg from '../assets/portfolio_quadrado_real.jpg'
+import amendoadoImg from '../assets/portfolio_amendoado_real.jpg'
+import bailarinaImg from '../assets/portfolio_bailarina_real.jpg'
+import pedicureImg from '../assets/pedicure_service.png'
+import reconstrucaoImg from '../assets/reconstrucao_service.png'
 
 const servicesData = [
   {
-    category: 'Alongamentos',
-    description: 'Transforme o comprimento e formato das suas unhas com técnicas de alta durabilidade.',
+    category: 'Manicure e Pedicure',
+    description: 'Cuidado completo para a saúde e beleza das suas mãos e pés.',
     items: [
       {
-        id: 'fibra',
-        name: 'Fibra de Vidro',
-        desc: 'Alongamento super natural e resistente, ideal para quem busca durabilidade e um acabamento fino impecável.',
-        img: fibraImg,
+        id: 'manicure',
+        name: 'Manicure',
+        desc: 'Cuidado completo para as mãos: cutilagem, lixamento, hidratação e esmaltação impecável. Ideal para quem quer unhas bem feitas, com acabamento limpo e delicado.',
+        img: manicureImg,
         prices: [
-          { type: 'Aplicação', value: 'R$ 180' },
-          { type: 'Manutenção', value: 'R$ 100' },
+          { type: 'Serviço', value: 'R$ 35,00' }
         ]
       },
       {
-        id: 'molde-f1',
-        name: 'Molde F1',
-        desc: 'Técnica express para alongamentos perfeitos com estrutura otimizada e simetria precisa.',
-        img: moldeImg,
+        id: 'pedicure',
+        name: 'Pedicure',
+        desc: 'Tratamento completo para os pés com remoção de cutículas, esfoliação, hidratação e finalização com esmaltação. Deixa os pés macios, bonitos e bem cuidados.',
+        img: pedicureImg,
         prices: [
-          { type: 'Aplicação', value: 'R$ 160' },
-          { type: 'Manutenção', value: 'R$ 90' },
+          { type: 'Serviço', value: 'R$ 35,00' }
+        ]
+      },
+      {
+        id: 'reconstrucao-pes',
+        name: 'Reconstrução unhas dos pés',
+        desc: 'Tratamento especializado para recuperar a estética e saúde das unhas dos pés.',
+        img: reconstrucaoImg,
+        prices: [
+          { type: 'Serviço', value: 'R$ 80,00' }
+        ]
+      },
+      {
+        id: 'esmalta-gel',
+        name: 'Esmaltação em Gel - Blindagem',
+        desc: 'Esmaltação com gel e cura na cabine UV/LED, garantindo brilho intenso e maior durabilidade no dia a dia. Ideal para quem quer unhas sempre bonitas por mais tempo, com acabamento impecável.',
+        img: banhoGelImg,
+        prices: [
+          { type: 'Serviço', value: 'R$ 65,00' }
         ]
       }
     ]
   },
   {
-    category: 'Cuidados e Proteção',
-    description: 'Serviços pensados para a saúde, proteção e estética da sua unha natural.',
+    category: 'Alongamentos e Gel',
+    description: 'Técnicas avançadas para alongar, fortalecer e embelezar suas unhas.',
     items: [
       {
-        id: 'banho-gel',
-        name: 'Banho de Gel',
-        desc: 'Cria uma blindagem protetora sobre as unhas naturais, prevenindo quebras e mantendo o esmalte intacto.',
-        img: banhoGelImg,
+        id: 'fibra',
+        name: 'Alongamento Fibra de Vidro',
+        desc: 'Técnica ideal para quem quer unhas mais longas e resistentes, com acabamento natural e elegante.',
+        img: fibraImg,
         prices: [
-          { type: 'Aplicação', value: 'R$ 120' },
-          { type: 'Manutenção', value: 'R$ 80' },
+          { type: 'Aplicação', value: 'R$ 140,00' },
+          { type: 'Manutenção', value: 'R$ 110,00' },
         ]
       },
       {
-        id: 'manicure-luxo',
-        name: 'Manicure & Esmaltação',
-        desc: 'Cuticulagem combinada e esmaltação em gel com finalização de alto brilho e durabilidade estendida.',
-        img: manicureImg,
+        id: 'molde-f1',
+        name: 'Alongamento Molde F1',
+        desc: 'Técnica ideal para quem quer unhas mais longas e resistentes, com acabamento natural e elegante.',
+        img: moldeImg,
         prices: [
-          { type: 'Serviço', value: 'R$ 70' },
+          { type: 'Aplicação', value: 'R$ 120,00' },
+          { type: 'Manutenção', value: 'R$ 100,00' },
         ]
+      },
+      {
+        id: 'banho-gel',
+        name: 'Banho de Gel',
+        desc: 'Perfeito para fortalecer as unhas naturais. Aplicamos uma camada de gel que cria proteção, melhora a resistência e ajuda no crescimento, mantendo um acabamento brilhante e alinhado.',
+        img: banhoGelImg,
+        prices: [
+          { type: 'Serviço', value: 'R$ 100,00' }
+        ]
+      }
+    ]
+  },
+  {
+    category: 'Formatos de Alongamento',
+    description: 'Todos os procedimentos estão inclusos, cutilagem, esmaltação em gel e decoração simples.',
+    items: [
+      {
+        id: 'quadrado',
+        name: 'Formato Quadrado',
+        desc: 'Laterais retas e ponta bem marcada. Passa modernidade, firmeza e combina com quem gosta de unhas fortes e sofisticadas.',
+        img: quadradoImg,
+        prices: []
+      },
+      {
+        id: 'amendoado',
+        name: 'Formato Amendoado',
+        desc: 'Laterais levemente afinadas e ponta arredondada. Transmite delicadeza, alonga os dedos e deixa as mãos mais femininas e elegantes.',
+        img: amendoadoImg,
+        prices: []
+      },
+      {
+        id: 'bailarina',
+        name: 'Formato Bailarina',
+        desc: 'Laterais retas e ponta levemente afunilada, lembrando uma sapatilha de balé. Sofisticado, moderno e perfeito pra quem quer unhas longas e impactantes.',
+        img: bailarinaImg,
+        prices: []
       }
     ]
   }
@@ -73,17 +131,19 @@ const ServiceCard = ({ item }) => (
     variants={fadeUp}
   >
     {/* Image */}
-    <div className="w-full md:w-2/5 aspect-square md:aspect-auto overflow-hidden relative">
-      <LazyImage
-        src={item.img}
-        alt={item.name}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 pointer-events-none" />
-    </div>
+    {item.img && (
+      <div className="w-full md:w-2/5 aspect-square md:aspect-auto overflow-hidden relative">
+        <LazyImage
+          src={item.img}
+          alt={item.name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 pointer-events-none" />
+      </div>
+    )}
 
     {/* Content */}
-    <div className="w-full md:w-3/5 p-7 md:p-9 flex flex-col justify-between">
+    <div className={`w-full ${item.img ? 'md:w-3/5' : ''} p-7 md:p-9 flex flex-col justify-between`}>
       <div>
         <div className="flex items-center gap-3 mb-3">
           <span className="w-5 h-px bg-primary/40" />
@@ -97,25 +157,27 @@ const ServiceCard = ({ item }) => (
       </div>
 
       {/* Prices */}
-      <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-surface-variant/30">
-        {item.prices.map((price, idx) => (
-          <div
-            key={idx}
-            className={`flex flex-col px-5 py-3 rounded-xl ${
-              price.type === 'Aplicação' || price.type === 'Serviço'
-                ? 'bg-primary-container/40 text-on-primary-container'
-                : 'bg-surface-container text-on-surface-variant'
-            }`}
-          >
-            <span className="text-[10px] uppercase tracking-[0.2em] font-label mb-1 opacity-70 font-semibold">
-              {price.type}
-            </span>
-            <span className="text-2xl font-headline font-semibold text-primary leading-none">
-              {price.value}
-            </span>
-          </div>
-        ))}
-      </div>
+      {item.prices && item.prices.length > 0 && (
+        <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-surface-variant/30">
+          {item.prices.map((price, idx) => (
+            <div
+              key={idx}
+              className={`flex flex-col px-5 py-3 rounded-xl ${
+                price.type === 'Aplicação' || price.type === 'Serviço'
+                  ? 'bg-primary-container/40 text-on-primary-container'
+                  : 'bg-surface-container text-on-surface-variant'
+              }`}
+            >
+              <span className="text-[10px] uppercase tracking-[0.2em] font-label mb-1 opacity-70 font-semibold">
+                {price.type}
+              </span>
+              <span className="text-2xl font-headline font-semibold text-primary leading-none">
+                {price.value}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   </motion.div>
 )
