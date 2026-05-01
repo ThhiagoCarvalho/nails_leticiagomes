@@ -7,9 +7,6 @@ import fibraImg from '../assets/service_fibra_1776303133581.png'
 import moldeImg from '../assets/service_molde_f1_1776303201152.png'
 import banhoGelImg from '../assets/service_banho_gel_1776303183274.png'
 import manicureImg from '../assets/service_manicure_1776303215098.png'
-import quadradoImg from '../assets/portfolio_quadrado_real.jpg'
-import amendoadoImg from '../assets/portfolio_amendoado_real.jpg'
-import bailarinaImg from '../assets/portfolio_bailarina_real.jpg'
 import pedicureImg from '../assets/pedicure_service.png'
 import reconstrucaoImg from '../assets/reconstrucao_service.png'
 
@@ -88,33 +85,6 @@ const servicesData = [
         prices: [
           { type: 'Serviço', value: 'R$ 100,00' }
         ]
-      }
-    ]
-  },
-  {
-    category: 'Formatos de Alongamento',
-    description: 'Todos os procedimentos estão inclusos, cutilagem, esmaltação em gel e decoração simples.',
-    items: [
-      {
-        id: 'quadrado',
-        name: 'Formato Quadrado',
-        desc: 'Laterais retas e ponta bem marcada. Passa modernidade, firmeza e combina com quem gosta de unhas fortes e sofisticadas.',
-        img: quadradoImg,
-        prices: []
-      },
-      {
-        id: 'amendoado',
-        name: 'Formato Amendoado',
-        desc: 'Laterais levemente afinadas e ponta arredondada. Transmite delicadeza, alonga os dedos e deixa as mãos mais femininas e elegantes.',
-        img: amendoadoImg,
-        prices: []
-      },
-      {
-        id: 'bailarina',
-        name: 'Formato Bailarina',
-        desc: 'Laterais retas e ponta levemente afunilada, lembrando uma sapatilha de balé. Sofisticado, moderno e perfeito pra quem quer unhas longas e impactantes.',
-        img: bailarinaImg,
-        prices: []
       }
     ]
   }
