@@ -11,11 +11,11 @@ const fadeUp = {
 const Identity = memo(function Identity() {
   return (
     <section id="identidade" className="py-28 px-6 md:px-8 bg-surface-container-lowest overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 justify-between">
         
         {/* Content */}
         <motion.div 
-          className="w-full md:w-1/2 order-2 md:order-1"
+          className="w-full md:w-[60%] lg:w-[65%] order-2 md:order-1"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
@@ -38,11 +38,11 @@ const Identity = memo(function Identity() {
             <div className="gold-divider" />
           </div>
           
-          <p className="text-base md:text-lg text-secondary/80 mb-5 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-secondary/80 mb-5 leading-relaxed font-light max-w-2xl">
             Mais do que um simples atendimento, oferecemos uma experiência de renovação e autoestima. Acreditamos que o cuidado com as mãos é um momento de conexão consigo mesma, refletindo sua personalidade e estilo único no mundo.
           </p>
           
-          <p className="text-base md:text-lg text-secondary/80 mb-6 leading-relaxed font-light">
+          <p className="text-base md:text-lg text-secondary/80 mb-6 leading-relaxed font-light max-w-2xl">
             Nossa missão é entregar resultados impecáveis com máxima segurança, higiene e durabilidade, priorizando a saúde das suas unhas naturais acima de tudo. Trabalhamos exclusivamente com marcas premium e técnicas validadas.
           </p>
           
@@ -50,13 +50,13 @@ const Identity = memo(function Identity() {
 
         {/* Image */}
         <motion.div 
-          className="w-full md:w-1/2 order-1 md:order-2 relative"
+          className="w-full max-w-[320px] md:max-w-none md:w-[35%] lg:w-[28%] order-1 md:order-2 relative mx-auto md:mx-0"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.7 }}
         >
-          <div className="aspect-[4/5] md:aspect-square rounded-[2rem] overflow-hidden ambient-shadow-lg relative border-[6px] border-white">
+          <div className="aspect-[4/5] md:aspect-[3/4] rounded-[2rem] overflow-hidden ambient-shadow-lg relative border-[6px] border-white">
             <LazyImage 
               src={spaImg} 
               alt="Ambiente Relaxante de Spa" 

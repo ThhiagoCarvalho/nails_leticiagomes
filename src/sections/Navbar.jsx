@@ -28,103 +28,120 @@ const Navbar = memo(function Navbar() {
   }, [])
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(122,92,30,0.07),0_4px_24px_rgba(0,0,0,0.06)]'
-          : 'bg-white/70 backdrop-blur-md'
-      }`}
-    >
-      <div className="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
-        {/* Mobile menu toggle */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={toggleMobile}
-            className="md:hidden cursor-pointer p-1.5 rounded-full hover:bg-primary/5 transition-colors"
-            aria-label="Abrir menu"
-            id="mobile-menu-toggle"
-          >
-            <MaterialIcon
-              name={mobileMenuOpen ? 'close' : 'menu'}
-              className="text-primary"
-            />
-          </button>
-
-          {/* Logo / Brand */}
-          <a href="#hero" className="group flex flex-col leading-none">
-            <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-label font-medium hidden md:block">
-              Atelier
-            </span>
-            <h1 className="text-lg md:text-xl font-headline font-semibold tracking-[0.05em] text-primary group-hover:text-primary/80 transition-colors">
+    <header className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] md:w-auto md:min-w-[700px] max-w-4xl transition-all duration-500">
+      <div 
+        className={`relative flex items-center justify-between bg-white/70 backdrop-blur-lg border border-black/5 rounded-[50px] p-1.5 transition-all duration-500 ${
+          scrolled ? 'shadow-[0_12px_40px_rgba(0,0,0,0.08)] bg-white/85' : 'shadow-[0_4px_20px_rgba(0,0,0,0.03)]'
+        }`}
+      >
+        {/* Left: Logo Circle + Name */}
+        <a href="#hero" className="flex items-center gap-3 pl-1 pr-4 md:pr-5 rounded-full hover:bg-black/5 transition-all duration-300 group">
+          <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-headline font-medium text-[16px] group-hover:bg-primary group-hover:text-white transition-all duration-300 border border-black/5 shadow-sm">
+            LG
+          </div>
+          <div className="hidden md:flex flex-col justify-center">
+            <span className="text-[13px] font-headline font-medium tracking-wide text-on-surface group-hover:text-primary transition-colors leading-tight">
               Letícia Gomes
-            </h1>
-          </a>
-        </div>
+            </span>
+            <span className="text-[8px] uppercase tracking-[0.2em] text-on-surface/50 font-label leading-tight mt-0.5">
+              Nail Atelier
+            </span>
+          </div>
+        </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 items-center" aria-label="Navegação principal">
+        {/* Center: Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-1 px-4" aria-label="Navegação principal">
           {navLinks.slice(0, -1).map((link) => (
             <a
               key={link.id}
               id={link.id}
               href={link.href}
-              className="nav-link text-[11px] uppercase tracking-[0.2em] text-stone-500 hover:text-primary transition-colors font-label font-medium"
+              className="px-4 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] font-label font-medium text-on-surface/60 hover:text-on-surface hover:bg-black/5 transition-all duration-300"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* CTA Button — desktop */}
-        <a
-          href="#contato"
-          id="nav-cta"
-          className="hidden md:inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-label font-semibold text-primary border border-primary/25 px-5 py-2.5 rounded-full hover:bg-primary hover:text-white hover-lift transition-all duration-300 shadow-sm"
-        >
-          <MaterialIcon name="calendar_month" className="text-[16px]" />
-          Agendar
-        </a>
-
-        {/* Mobile — calendar icon only */}
-        <a href="#contato" aria-label="Agendar horário" className="md:hidden p-1.5 rounded-full hover:bg-primary/5 transition-colors">
-          <MaterialIcon name="calendar_month" className="text-primary" />
-        </a>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-            className="md:hidden overflow-hidden bg-white/98 backdrop-blur-xl border-t border-primary/8"
-            aria-label="Menu mobile"
+        {/* Right: Actions */}
+        <div className="flex items-center gap-2 pr-1">
+          {/* Desktop Circular Icon */}
+          <a 
+            href="#hero" 
+            className="hidden md:flex w-10 h-10 rounded-full bg-white items-center justify-center text-on-surface/70 border border-black/5 shadow-sm hover:-translate-y-0.5 hover:shadow-md hover:text-primary transition-all duration-300"
+            aria-label="Ir para o topo"
           >
-            <div className="flex flex-col items-center gap-5 py-8 px-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  onClick={closeMobile}
-                  className="text-[11px] uppercase tracking-[0.25em] text-stone-600 hover:text-primary transition-colors font-label font-semibold"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href="#contato"
-                onClick={closeMobile}
-                className="mt-2 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] font-label font-semibold text-white bg-primary px-8 py-3 rounded-full"
-              >
-                <MaterialIcon name="calendar_month" className="text-[16px]" />
-                Agendar horário
-              </a>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+            <MaterialIcon name="expand_less" className="text-[18px]" />
+          </a>
+
+          {/* Desktop CTA */}
+          <a
+            href="#contato"
+            id="nav-cta"
+            className="hidden md:flex h-10 px-6 rounded-full bg-primary items-center justify-center text-white text-[10px] uppercase tracking-[0.2em] font-label font-semibold shadow-sm hover:-translate-y-0.5 hover:shadow-md hover:bg-primary/90 transition-all duration-300"
+          >
+            Agendar
+          </a>
+
+          {/* Mobile Actions */}
+          <a 
+            href="#contato" 
+            aria-label="Agendar horário" 
+            className="md:hidden w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary border border-black/5 shadow-sm transition-all duration-300 hover:bg-black/5 hover:-translate-y-0.5"
+          >
+            <MaterialIcon name="calendar_month" className="text-[18px]" />
+          </a>
+          
+          <button
+            onClick={toggleMobile}
+            className="md:hidden w-10 h-10 rounded-full bg-white flex items-center justify-center text-on-surface border border-black/5 shadow-sm transition-all duration-300 hover:bg-black/5 hover:-translate-y-0.5"
+            aria-label="Abrir menu"
+            id="mobile-menu-toggle"
+          >
+            <MaterialIcon
+              name={mobileMenuOpen ? 'close' : 'menu'}
+              className="text-[20px]"
+            />
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="absolute top-[calc(100%+12px)] left-0 w-full bg-white/90 backdrop-blur-xl border border-black/5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] rounded-[24px] overflow-hidden md:hidden"
+              aria-label="Menu mobile"
+            >
+              <div className="flex flex-col p-2 gap-1">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    onClick={closeMobile}
+                    className="flex items-center justify-center py-4 text-[11px] uppercase tracking-[0.25em] text-on-surface/70 hover:text-primary hover:bg-black/5 rounded-2xl transition-all font-label font-medium"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <div className="px-2 pb-2 pt-1">
+                  <a
+                    href="#contato"
+                    onClick={closeMobile}
+                    className="flex items-center justify-center gap-2 w-full text-[11px] uppercase tracking-[0.2em] font-label font-semibold text-white bg-primary px-6 py-4 rounded-xl shadow-sm"
+                  >
+                    <MaterialIcon name="calendar_month" className="text-[16px]" />
+                    Agendar horário
+                  </a>
+                </div>
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </div>
     </header>
   )
 })

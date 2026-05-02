@@ -111,6 +111,11 @@ body {
   background-clip: text;
 }
 
+/* ===== Text Glow ===== */
+.text-glow {
+  text-shadow: 0 4px 12px rgba(200, 164, 98, 0.4);
+}
+
 /* ===== Ambient Shadow — refined ===== */
 .ambient-shadow {
   box-shadow: 

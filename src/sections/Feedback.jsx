@@ -39,7 +39,7 @@ const Feedback = memo(function Feedback() {
       {/* Decorative blobs */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-primary-container/10 blur-[100px] rounded-full -ml-32 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeader
           label="Depoimentos"
           title="O que nossas clientes dizem"
@@ -47,7 +47,7 @@ const Feedback = memo(function Feedback() {
           showLine={true}
         />
 
-        <div className="grid md:grid-cols-3 gap-6 mt-4">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mt-4">
           {testimonials.map((item, index) => (
             <motion.div
               key={item.id}
@@ -61,7 +61,7 @@ const Feedback = memo(function Feedback() {
               {/* Top accent bar */}
               <div className="h-1 gold-gradient" />
 
-              <div className="p-8 flex flex-col flex-1">
+              <div className="p-6 md:p-7 flex flex-col flex-1">
                 {/* Decorative quote mark */}
                 <div className="text-primary-container/60 font-headline text-7xl leading-none mb-2 select-none" aria-hidden>
                   "

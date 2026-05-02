@@ -97,51 +97,50 @@ const fadeUp = {
 
 const ServiceCard = ({ item }) => (
   <motion.div
-    className="group bg-white rounded-2xl overflow-hidden card-premium flex flex-col md:flex-row h-full border border-surface-variant/20"
+    className="group bg-white rounded-2xl overflow-hidden card-premium flex flex-col md:flex-row h-full border border-black/5 ambient-shadow"
     variants={fadeUp}
   >
     {/* Image */}
     {item.img && (
-      <div className="w-full md:w-2/5 aspect-square md:aspect-auto overflow-hidden relative">
+      <div className="w-full md:w-[25%] lg:w-[25%] aspect-video md:aspect-auto overflow-hidden relative">
         <LazyImage
           src={item.img}
           alt={item.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 pointer-events-none" />
       </div>
     )}
 
     {/* Content */}
-    <div className={`w-full ${item.img ? 'md:w-3/5' : ''} p-7 md:p-9 flex flex-col justify-between`}>
+    <div className={`w-full ${item.img ? 'md:w-[75%] lg:w-[75%]' : ''} px-6 pb-6 pt-4 md:p-8 flex flex-col justify-between`}>
       <div>
-        <div className="flex items-center gap-3 mb-3">
-          <span className="w-5 h-px bg-primary/40" />
-          <h4 className="text-2xl md:text-3xl font-headline font-medium text-primary leading-tight">
+        <div className="flex items-center gap-3 mb-2">
+          <span className="w-4 h-px bg-primary/40" />
+          <h4 className="text-xl md:text-[22px] font-headline font-bold text-on-surface leading-tight tracking-wide">
             {item.name}
           </h4>
         </div>
-        <p className="text-secondary/80 leading-relaxed font-light text-sm mb-6">
+        <p className="text-on-surface/60 leading-relaxed font-light text-[14px] md:text-[15px] mb-6">
           {item.desc}
         </p>
       </div>
 
       {/* Prices */}
       {item.prices && item.prices.length > 0 && (
-        <div className="flex flex-wrap gap-3 mt-auto pt-4 border-t border-surface-variant/30">
+        <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-surface-variant/30">
           {item.prices.map((price, idx) => (
             <div
               key={idx}
-              className={`flex flex-col px-5 py-3 rounded-xl ${
-                price.type === 'Aplicação' || price.type === 'Serviço'
-                  ? 'bg-primary-container/40 text-on-primary-container'
-                  : 'bg-surface-container text-on-surface-variant'
-              }`}
+              className={`flex flex-col px-4 py-2.5 rounded-xl ${price.type === 'Aplicação' || price.type === 'Serviço'
+                ? 'bg-primary-container/20 text-primary border border-primary/10'
+                : 'bg-surface text-on-surface-variant border border-surface-variant/50'
+                }`}
             >
-              <span className="text-[10px] uppercase tracking-[0.2em] font-label mb-1 opacity-70 font-semibold">
+              <span className="text-[9px] uppercase tracking-[0.2em] font-label mb-1 opacity-70 font-medium">
                 {price.type}
               </span>
-              <span className="text-2xl font-headline font-semibold text-primary leading-none">
+              <span className="text-xl font-headline font-semibold leading-none">
                 {price.value}
               </span>
             </div>
@@ -154,7 +153,7 @@ const ServiceCard = ({ item }) => (
 
 const Services = memo(function Services() {
   return (
-    <section id="servicos" className="py-28 px-6 md:px-8 relative bg-surface-container-low overflow-hidden">
+    <section id="servicos" className="py-28 md:py-32 px-6 md:px-8 relative bg-surface-container-low overflow-hidden">
 
       {/* Decorative background blob */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-container/8 blur-[120px] rounded-full -mr-48 -mt-48 pointer-events-none" />
@@ -163,62 +162,62 @@ const Services = memo(function Services() {
 
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={fadeUp}
         >
-          <div className="flex items-center gap-3 mb-5 justify-center">
-            <span className="w-8 h-px bg-primary-container/80" />
-            <span className="text-[10px] uppercase tracking-[0.25em] text-primary font-label font-semibold">
-              Especialidades
-            </span>
-            <span className="w-8 h-px bg-primary-container/80" />
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-headline font-light text-primary mb-4 leading-tight">
+
+          {/* Nível 1: Título Principal */}
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-on-surface mb-6 leading-tight tracking-tight">
             Serviços Especializados
           </h2>
-          <div className="flex justify-center mb-5">
-            <div className="gold-divider" />
+          <div className="flex justify-center mb-6">
+            <div className="w-16 h-0.5 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
           </div>
-          <p className="text-lg text-secondary/80 max-w-2xl mx-auto font-light leading-relaxed">
-            Procedimentos realizados com produtos de alta qualidade para garantir unhas impecáveis e saudáveis.
-          </p>
+
         </motion.div>
 
-        {servicesData.map((category, idx) => (
-          <div key={idx} className="mb-20 last:mb-0">
+        <div className="space-y-24">
+          {servicesData.map((category, idx) => (
+            <div key={idx} className="relative">
 
-            {/* Category label */}
-            <motion.div
-              className="mb-8 flex items-center gap-5"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55 }}
-            >
-              <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent" />
-              <div>
-                <h3 className="text-2xl md:text-3xl font-headline font-medium text-on-surface">
-                  {category.category}
-                </h3>
-                <p className="text-secondary/70 mt-1 text-sm font-light">{category.description}</p>
+              {/* Nível 2: Categoria */}
+              <motion.div
+                className="mb-10 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.55 }}
+              >
+                <div className="inline-flex flex-col items-center">
+                  <h3 className="text-[26px] md:text-[30px] font-headline font-semibold text-primary mb-2">
+                    {category.category}
+                  </h3>
+                  <div className="w-full flex items-center justify-center gap-4 mb-3">
+                    <span className="h-px w-12 bg-gradient-to-r from-transparent to-primary/30" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40" />
+                    <span className="h-px w-12 bg-gradient-to-l from-transparent to-primary/30" />
+                  </div>
+                  <p className="text-secondary/80 text-[15px] font-normal max-w-md mx-auto">
+                    {category.description}
+                  </p>
+                </div>
+              </motion.div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                {category.items.map(item => (
+                  <ServiceCard key={item.id} item={item} />
+                ))}
               </div>
-              <div className="h-px w-8 bg-primary/20" />
-            </motion.div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {category.items.map(item => (
-                <ServiceCard key={item.id} item={item} />
-              ))}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* CTA Banner */}
         <motion.div
-          className="mt-24 p-12 md:p-16 rounded-3xl text-center relative overflow-hidden border border-primary/10"
+          className="mt-32 p-12 md:p-16 rounded-3xl text-center relative overflow-hidden border border-primary/10 ambient-shadow-lg"
           style={{
             background: 'linear-gradient(135deg, #f5ede0 0%, #ede0cc 50%, #e8d5b0 100%)'
           }}
@@ -232,18 +231,18 @@ const Services = memo(function Services() {
           <div className="absolute top-0 right-0 w-48 h-48 bg-primary/8 blur-[80px] rounded-full pointer-events-none" />
 
           <div className="relative z-10">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-label font-semibold mb-4">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-primary/60 font-label font-bold mb-4">
               Pronta para transformar?
             </p>
-            <h3 className="text-3xl md:text-5xl font-headline font-light text-primary mb-3 leading-tight">
+            <h3 className="text-[28px] md:text-[36px] font-headline font-medium text-on-surface mb-4 leading-tight">
               Suas unhas merecem
               <br />
-              <span className="italic">o melhor cuidado</span>
+              <span className="italic font-light">o melhor cuidado</span>
             </h3>
             <div className="flex justify-center mb-6">
               <div className="gold-divider" />
             </div>
-            <p className="text-secondary/80 text-base md:text-lg mb-10 max-w-xl mx-auto font-light leading-relaxed">
+            <p className="text-on-surface/70 text-[15px] md:text-base mb-10 max-w-xl mx-auto font-light leading-relaxed">
               Agende seu horário e garanta um momento de cuidado, beleza e relaxamento que você merece.
             </p>
             <Button href="#contato" icon="calendar_today" variant="primary">
@@ -257,3 +256,4 @@ const Services = memo(function Services() {
 })
 
 export default Services
+
