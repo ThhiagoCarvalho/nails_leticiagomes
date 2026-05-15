@@ -41,7 +41,11 @@ const Hero = memo(function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
           >
-
+            <span className="w-8 h-px bg-primary/30" />
+            <span className="text-[10px] uppercase tracking-[0.25em] text-primary/70 font-label font-semibold">
+              Manicure · Pedicure · Nail Designer · São José dos Campos
+            </span>
+            <span className="w-8 h-px bg-primary/30 hidden sm:block" />
           </motion.div>
 
           {/* Name — main title */}
@@ -73,6 +77,7 @@ const Hero = memo(function Hero() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.5 }}
             >
+              Nail Designer &amp; Especialista em Alongamentos
             </motion.p>
             <motion.p
               className="text-base md:text-[17px] leading-relaxed text-on-surface/80 mb-6 md:mb-10 font-body font-normal"

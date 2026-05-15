@@ -1,6 +1,8 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
 import LazyImage from '../components/LazyImage'
+import MaterialIcon from '../components/MaterialIcon'
+import leticiaImg from '../assets/leticia gomes.png'
 
 const stats = [
   { value: '2+', label: 'Anos de\nExperiência' },
@@ -41,8 +43,8 @@ const About = memo(function About() {
 
           <div className="w-48 h-48 rounded-full overflow-hidden border-2 border-primary-container/60 p-1 ambient-shadow">
             <LazyImage
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ-9rC_OtB0QT-wjpjkR1SB51UySptn8bM1HFJKNU_0SJNYtl8-S57fyie_ZT93BptyHRXWn_shKqj10dk1_kzQ-cPYrpXbI56rNJ1m6c5sZt3bjdoi0eum8z4Gjj42NUcXGScMwn2ANu4lYeCO4AxicM83D423wjlXaA2CjNtTvgZR4xZ79StbwcRPPRlgjhjSo7b8H3RCheYlfc4hu7fVmzDPUJcXPCUwM_zCgd5B_9GiC4z_z-IW5RXWeKxsb2UBAfmBNHwr-o"
-              alt="Letícia Gomes Profile"
+              src={leticiaImg}
+              alt="Letícia Gomes — Nail Designer"
               className="w-full h-full rounded-full object-cover"
             />
           </div>
@@ -96,6 +98,32 @@ const About = memo(function About() {
               </span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-label text-secondary/70 whitespace-pre leading-relaxed">
                 {stat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Diferenciais de confiança */}
+        <motion.div
+          className="grid grid-cols-2 gap-4 mt-10 max-w-sm mx-auto"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.7, delay: 0.45 }}
+        >
+          {[
+            { icon: 'sanitizer', label: 'Materiais descartáveis' },
+            { icon: 'schedule', label: 'Horário marcado' },
+            { icon: 'star', label: 'Esmaltes premium' },
+            { icon: 'favorite', label: 'Atendimento personalizado' },
+          ].map((item) => (
+            <div
+              key={item.icon}
+              className="flex flex-col items-center gap-2 bg-white/70 border border-primary/8 rounded-2xl px-4 py-4 ambient-shadow"
+            >
+              <MaterialIcon name={item.icon} className="text-[20px] text-primary" />
+              <span className="text-[11px] text-secondary/70 font-label text-center leading-snug">
+                {item.label}
               </span>
             </div>
           ))}

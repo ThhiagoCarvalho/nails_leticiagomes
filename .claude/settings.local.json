@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Remove-Item \"c:\\\\Users\\\\Thiaguinho\\\\OneDrive\\\\Desktop\\\\naiwls_web\\\\src\\\\assets\\\\react.svg\" -Force)",
+      "Bash(Remove-Item \"c:\\\\Users\\\\Thiaguinho\\\\OneDrive\\\\Desktop\\\\naiwls_web\\\\src\\\\assets\\\\vite.svg\" -Force)",
+      "Bash(Write-Output \"Deletados com sucesso\")"
+    ]
+  }
+}

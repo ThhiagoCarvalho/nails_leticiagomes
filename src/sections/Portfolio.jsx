@@ -110,10 +110,10 @@ const Portfolio = memo(function Portfolio() {
                 <LazyImage
                   src={format.image}
                   alt={format.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 {/* Title on hover overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
                   <span className="text-white font-headline text-xl italic font-light">
@@ -141,8 +141,19 @@ const Portfolio = memo(function Portfolio() {
         {/* Mobile indicator dots */}
         <div className="md:hidden flex justify-center mt-4 gap-1.5">
           {formats.map((_, i) => (
-            <div key={i} className="w-1 h-1 rounded-full bg-primary/25" />
+            <div key={i} className="w-2 h-2 rounded-full bg-primary/25" />
           ))}
+        </div>
+
+        {/* CTA após galeria */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="#contato"
+            className="text-[11px] uppercase tracking-[0.2em] text-primary font-label font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300"
+          >
+            Gostou? Agende seu horário
+            <MaterialIcon name="arrow_forward" className="text-[14px]" />
+          </a>
         </div>
       </div>
     </section>

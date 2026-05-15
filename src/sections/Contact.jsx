@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: 'schedule',
     title: 'Horário de Atendimento',
-    lines: ['Atendimento com hora marcada', 'Segunda a Domingo'],
+    lines: ['Seg – Sex: 9h às 19h', 'Sáb: 8h às 17h | Dom: agendamento'],
   },
 ]
 
@@ -26,7 +26,8 @@ const Contact = memo(function Contact() {
   const instagramUrl = 'https://www.instagram.com/leticiagomes.unhas/'
 
   return (
-    <section id="contato" className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="contato" className="py-24 px-6 bg-surface-container-low">
+    <div className="max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-16 items-start">
         {/* Left Column - Info */}
         <motion.div
@@ -80,46 +81,53 @@ const Contact = memo(function Contact() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
-            <Button 
-              href={whatsappUrl} 
-              target="_blank" 
-              className="flex-1 shadow-lg hover:shadow-primary/20" 
+            <Button
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 shadow-lg hover:shadow-primary/20"
               icon="chat"
             >
               WhatsApp
             </Button>
-            <Button 
-              href={instagramUrl} 
-              target="_blank" 
-              variant="outline" 
-              className="flex-1 hover:bg-surface-container" 
+            <Button
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              className="flex-1 hover:bg-surface-container"
               icon="photo_camera"
             >
               Instagram
             </Button>
           </div>
+          <p className="text-[11px] text-secondary/50 font-light mt-2 text-center sm:text-left">
+            Resposta rápida · Segunda a Domingo
+          </p>
         </motion.div>
 
         {/* Right Column - Map */}
         <motion.div
-          className="rounded-[2.5rem] overflow-hidden h-[500px] ambient-shadow bg-surface-dim relative group border-8 border-surface-container-low"
+          className="rounded-[2.5rem] overflow-hidden h-[500px] ambient-shadow bg-surface-dim relative group ring-1 ring-black/8 shadow-xl"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.114651468933!2d-45.89166650000001!3d-23.2752834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdb56ed0f5a1d3%3A0xc8ac0568c32687a3!2sAv.%20Ant%C3%B4nio%20Joaquim%20Alvarenga%20Filho%2C%20140%20-%20Conj.%20Res.%20Dom%20Pedro%20I%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20-%20SP%2C%2012232-570!5e0!3m2!1spt-BR!2sbr!4v1776368413000!5m2!1spt-BR!2sbr" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.114651468933!2d-45.89166650000001!3d-23.2752834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdb56ed0f5a1d3%3A0xc8ac0568c32687a3!2sAv.%20Ant%C3%B4nio%20Joaquim%20Alvarenga%20Filho%2C%20140%20-%20Conj.%20Res.%20Dom%20Pedro%20I%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20-%20SP%2C%2012232-570!5e0!3m2!1spt-BR!2sbr!4v1776368413000!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            sandbox="allow-scripts allow-same-origin"
             title="Mapa Letícia Gomes Atelier"
           ></iframe>
         </motion.div>
       </div>
+    </div>
     </section>
   )
 })

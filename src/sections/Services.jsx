@@ -13,7 +13,7 @@ import reconstrucaoImg from '../assets/reconstrucao_service.png'
 const servicesData = [
   {
     category: 'Manicure e Pedicure',
-    description: 'Cuidado completo para a saúde e beleza das suas mãos e pés.',
+    description: 'Cuidado completo para mãos e pés — materiais descartáveis, higiene impecável e acabamento que dura.',
     items: [
       {
         id: 'manicure',
@@ -70,7 +70,7 @@ const servicesData = [
       {
         id: 'molde-f1',
         name: 'Alongamento Molde F1',
-        desc: 'Técnica ideal para quem quer unhas mais longas e resistentes, com acabamento natural e elegante.',
+        desc: 'Técnica de alongamento em molde plástico para unhas mais longas e resistentes. Acabamento natural e elegante, perfeito para o dia a dia.',
         img: moldeImg,
         prices: [
           { type: 'Aplicação', value: 'R$ 120,00' },
@@ -117,7 +117,7 @@ const ServiceCard = ({ item }) => (
       <div>
         <div className="flex items-center gap-3 mb-2">
           <span className="w-4 h-px bg-primary/40" />
-          <h4 className="text-xl md:text-[22px] font-headline font-bold text-on-surface leading-tight tracking-wide">
+          <h4 className="text-[17px] font-headline font-medium text-on-surface leading-tight tracking-wide">
             {item.name}
           </h4>
         </div>
@@ -169,9 +169,14 @@ const Services = memo(function Services() {
           variants={fadeUp}
         >
 
+          {/* Label eyebrow */}
+          <p className="text-[10px] uppercase tracking-[0.25em] text-primary/60 font-label font-semibold mb-4">
+            Nossos Serviços
+          </p>
+
           {/* Nível 1: Título Principal */}
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-on-surface mb-6 leading-tight tracking-tight">
-            Serviços Especializados
+          <h2 className="text-4xl md:text-5xl font-headline font-light italic text-on-surface mb-6 leading-tight tracking-tight">
+            Cuidado que Você Sente
           </h2>
           <div className="flex justify-center mb-6">
             <div className="w-16 h-0.5 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
@@ -192,7 +197,7 @@ const Services = memo(function Services() {
                 transition={{ duration: 0.55 }}
               >
                 <div className="inline-flex flex-col items-center">
-                  <h3 className="text-[26px] md:text-[30px] font-headline font-semibold text-primary mb-2">
+                  <h3 className="text-[18px] uppercase tracking-[0.1em] font-headline font-semibold text-primary mb-2">
                     {category.category}
                   </h3>
                   <div className="w-full flex items-center justify-center gap-4 mb-3">

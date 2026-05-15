@@ -2,21 +2,23 @@ import { memo } from 'react'
 import MaterialIcon from '../components/MaterialIcon'
 
 const Footer = memo(function Footer() {
+  const emailUser = 'contato'
+  const emailDomain = 'leticiagomes.com.br'
+  const emailHref = `mailto:${emailUser}@${emailDomain}`
+  const emailText = `${emailUser}@${emailDomain}`
+
   const contactLinks = [
     {
       href: "https://wa.me/5512988812961",
       icon: "chat",
-      text: "(12) 98881-2961"
-    },
-    {
-      href: "mailto:contato@leticiagomes.com.br",
-      icon: "mail",
-      text: "contato@leticiagomes.com.br"
+      text: "(12) 98881-2961",
+      rel: "noopener noreferrer"
     },
     {
       href: "https://maps.google.com/?q=Av.+Antônio+Joaquim+Alvarenga+Filho,+140,+São+José+dos+Campos",
       icon: "location_on",
-      text: "Av. Antônio Joaquim Alvarenga Filho, 140, SJC"
+      text: "Av. Antônio Joaquim Alvarenga Filho, 140, SJC",
+      rel: "noopener noreferrer"
     }
   ];
 
@@ -53,6 +55,17 @@ const Footer = memo(function Footer() {
                   <span className="group-hover:font-medium transition-all">{link.text}</span>
                 </a>
               ))}
+
+              {/* Email construído em runtime para evitar coleta por bots */}
+              <a
+                href={emailHref}
+                className="group flex items-center gap-4 hover:text-primary transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 ambient-shadow border border-black/5">
+                  <MaterialIcon name="mail" className="text-[18px]" />
+                </div>
+                <span className="group-hover:font-medium transition-all">{emailText}</span>
+              </a>
             </div>
           </div>
 

@@ -91,9 +91,9 @@ body {
 
 /* ===== Marble Background ===== */
 .marble-bg {
-  background-image: 
+  background-image:
     linear-gradient(rgba(250, 249, 247, 0.90), rgba(250, 249, 247, 0.90)),
-    url(https://lh3.googleusercontent.com/aida-public/AB6AXuDoJOOXu2NoVqbBl2FiossOPBgq9TQ-qutM5MxDeZY0mOXoXsuvmrIFG410dsl1gjOjAX6tzXj0Bs-F1FYVLDUQW4X-ucQv0KRUPfZiecUIepPR_oGE5pZRojae-C1A--WH2PXU1JWRmZeZ8gMRQ6-tEwuFZloUMMfuJIXOPep2-klwvxnUO4GZoV7aGSpWFI5lMQCoPprzRfLu6-Wz326ECAew_X6-GiWAfAnB3F7RJNJTPnNXyh12VmN6IFp71hK3fGBEJB7g5zo);
+    url('/manicure_ambient_bg.png');
   background-size: cover;
   background-attachment: fixed;
 }

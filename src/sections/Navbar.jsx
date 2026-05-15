@@ -51,7 +51,7 @@ const Navbar = memo(function Navbar() {
 
         {/* Center: Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1 px-4" aria-label="Navegação principal">
-          {navLinks.slice(0, -1).map((link) => (
+          {navLinks.slice(0).map((link) => (
             <a
               key={link.id}
               id={link.id}
@@ -65,13 +65,15 @@ const Navbar = memo(function Navbar() {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-2 pr-1">
-          {/* Desktop Circular Icon */}
-          <a 
-            href="#hero" 
+          {/* Desktop WhatsApp Link */}
+          <a
+            href="https://wa.me/5512988812961"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:flex w-10 h-10 rounded-full bg-white items-center justify-center text-on-surface/70 border border-black/5 shadow-sm hover:-translate-y-0.5 hover:shadow-md hover:text-primary transition-all duration-300"
-            aria-label="Ir para o topo"
+            aria-label="WhatsApp"
           >
-            <MaterialIcon name="expand_less" className="text-[18px]" />
+            <MaterialIcon name="chat" className="text-[18px]" />
           </a>
 
           {/* Desktop CTA */}
